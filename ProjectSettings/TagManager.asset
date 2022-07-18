@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Item
+  - Enemy
+  - TileMap
+  - Weapon
+  - LevelLoad
+  - NPC
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - Floor
+  - Actor
+  - Collider Tilemap
+  - Weapon
+  - Enemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Other
+    uniqueID: 1351988877
+    locked: 0
+  - name: Floor
+    uniqueID: 433297447
+    locked: 0
+  - name: Design
+    uniqueID: 3143104435
+    locked: 0
+  - name: Weapon
+    uniqueID: 624852301
+    locked: 0
+  - name: Collider Tilemap
+    uniqueID: 2675741463
+    locked: 0
+  - name: Actor
+    uniqueID: 492631681
+    locked: 0
+  - name: NPC
+    uniqueID: 149681931
+    locked: 0
+  - name: UI
+    uniqueID: 1992919573
+    locked: 0
+  - name: Item
+    uniqueID: 895776153
+    locked: 0
