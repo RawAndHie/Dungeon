@@ -48,9 +48,14 @@ namespace Weapon
             {
                 PlayerController playerController;
                 col.gameObject.TryGetComponent(out playerController);
-                playerController.Hit(m_damage );
+                playerController.Hit(m_damage);
                 SpawnManager.Instance.ReleaseEnemyBulelt(this , m_isBulletBoss);
             }
+        }
+
+        public void GetDamage(float damage)
+        {
+            m_damage = damage;
         }
     }
 }

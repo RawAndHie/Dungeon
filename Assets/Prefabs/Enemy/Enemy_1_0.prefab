@@ -76,7 +76,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 492631681
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -5045879605080574865, guid: 75fa482459072004cb57e5f35817112e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,11 +130,11 @@ MonoBehaviour:
   m_radiusFollow: 1.29
   m_radiusStop: 0
   m_radiusAttack: 0.7
-  m_moveSpeed: 0.5
-  m_hp: 15
-  m_enemyDamage: 10
   m_isReturnStartPoint: 1
   m_alwayFollow: 1
+  m_moveSpeed: 0.5
+  m_enemyModel: {fileID: 11400000, guid: 6896ce11f27fa0340b60ee91be5d3688, type: 2}
+  m_level: 5
 --- !u!50 &6237584866900355965
 Rigidbody2D:
   serializedVersion: 4
@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_firePoint: {fileID: 5689826856524776030}
+  m_isBoss: 0
   m_timeAttack: 0.7
 --- !u!1 &7223400611023546914
 GameObject:
@@ -259,7 +260,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 492631681
-  m_SortingLayer: 4
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: a9147dbad2692a34580367cf4cd0f8c8, type: 3}
   m_Color: {r: 0.9811321, g: 0, b: 0, a: 1}

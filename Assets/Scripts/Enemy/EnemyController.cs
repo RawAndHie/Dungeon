@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using Manager;
 using Player;
+using SaveData;
 using TreeEditor;
 using UnityEngine;
+using UnityEngine.UI;
 using Weapon;
 
 #pragma warning disable CS0414
@@ -25,12 +27,14 @@ namespace Enemy
         [Header("Radius")] [SerializeField] private float m_radiusFollow;
         [SerializeField] private float m_radiusStop; // trong vùng stop thì chỉ nhìn player , vùng stop > vùng tấn công 
         [SerializeField] private float m_radiusAttack;
-        [Header("Index")] [SerializeField] private float m_moveSpeed;
-        [SerializeField] private float m_hp;
-        [SerializeField] private float m_enemyDamage;
         [Header("Setting")] [SerializeField] private bool m_isReturnStartPoint;
         [SerializeField] private bool m_alwayFollow;
-
+        [Header("Index")] [SerializeField] private float m_moveSpeed;
+        [SerializeField] private EnemyModel m_enemyModel;
+        [SerializeField] private int m_level;
+        private EnemyCombat m_enemyCombat;
+        private float m_hp;
+        private float m_enemyDamage;
         private Transform m_playerPos;
         private bool m_isMove;
         private bool m_isAttack;
@@ -44,6 +48,7 @@ namespace Enemy
         {
             m_playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             m_startPosition = transform.position;
+            GetInfoEnemy();
             m_currentHp = m_hp;
             m_status = EnemyStatus.Alive;
         }
@@ -54,6 +59,11 @@ namespace Enemy
             Move();
         }
 
+        private void GetInfoEnemy()
+        {
+            m_hp = m_enemyModel.GetHealth(m_level);
+            m_enemyDamage = m_enemyModel.GetDamage(m_level);
+        }
         public bool CheckAttackRadius()
         {
             if (m_status == EnemyStatus.Alive && SpawnManager.Instance.Player.m_playerStatus == PlayerStatus.Alive)
@@ -153,9 +163,9 @@ namespace Enemy
             if (col.gameObject.CompareTag("Player"))
             {
                 Debug.Log("vacham player");
-                PlayerController playerController;
-                col.gameObject.TryGetComponent(out playerController);
-                playerController.Hit(m_enemyDamage);
+                // PlayerController playerController;
+                // col.gameObject.TryGetComponent(out playerController);
+                // playerController.Hit(m_enemyDamage);
             }
         }
 
@@ -176,12 +186,24 @@ namespace Enemy
             Gizmos.DrawWireSphere(transform.position, m_radiusAttack);
             Gizmos.DrawWireSphere(transform.position, m_radiusStop);
         }
+
+        public float GetDamage()
+        {
+            return m_enemyDamage;
+        }
     }
 
     public class EnemyCombat : MonoBehaviour
     {
         [SerializeField] private Transform m_firePoint;
         [SerializeField] private bool m_isBoss;
+        private EnemyController m_enemy;
+
+        private void Start()
+        {
+            m_enemy = GetComponent<EnemyController>();
+        }
+
         private void MeleeCombat()
         {
         }
@@ -203,6 +225,7 @@ namespace Enemy
                 weaponController.transform.up = dir;
             }
         }
+        
         public void RangeBossCombat(Transform target)
         {
             RangeWeaponEnemy weaponController = SpawnManager.Instance.SpawnBossBullet(m_firePoint.position);
