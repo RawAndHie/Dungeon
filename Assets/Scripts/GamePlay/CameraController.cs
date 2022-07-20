@@ -11,7 +11,6 @@ namespace GamePlay
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private Transform m_lookAt;
         private Transform m_player;
         private float m_boundX = 0.15f;
         private float m_boundY = 0.05f;

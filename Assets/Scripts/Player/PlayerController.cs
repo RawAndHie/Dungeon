@@ -148,5 +148,7 @@ namespace Player
                 CanvasManager.Instance.PauseMenu();
             }
         }
+
+        
     }
 }
